@@ -146,11 +146,30 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     });
   });
+
+  // Fetch Discord server stats
+  fetchDiscordInfo();
 });
+
+// Fetch Discord server information
+async function fetchDiscordInfo() {
+  try {
+    const response = await fetch('https://hooks.jdoodle.net/proxy?url=https://discord.com/api/guilds/1370059719393415319/widget.json');
+    const data = await response.json();
+    
+    // Update the member count and online count
+    document.getElementById('member-count').textContent = data.presence_count || 'N/A';
+    document.getElementById('online-count').textContent = data.presence_count || 'N/A';
+  } catch (error) {
+    console.error('Error fetching Discord info:', error);
+    document.getElementById('member-count').textContent = 'N/A';
+    document.getElementById('online-count').textContent = 'N/A';
+  }
+}
 
 // Add CSS class for animated elements
 document.addEventListener('scroll', () => {
-  const elements = document.querySelectorAll('.feature-card, .about-image, .command-examples');
+  const elements = document.querySelectorAll('.feature-card, .about-image, .command-examples, .developer-image, .discord-widget');
   
   elements.forEach(element => {
     if (isElementInViewport(element)) {
