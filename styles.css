@@ -1028,4 +1028,14 @@ footer {
     flex-direction: column;
   }
 }
-  
+
+.abc{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+}
