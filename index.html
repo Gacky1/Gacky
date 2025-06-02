@@ -1,0 +1,248 @@
+<!DOCTYPE  html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Built with jdoodle.ai - Meet Gacky, your ultimate Discord bot for moderation, tournament management, and more.">
+  <meta property="og:title" content="Gacky Discord Bot - Your Ultimate Discord Companion">
+  <meta property="og:description" content="Built with jdoodle.ai - Gacky is the perfect Discord bot for server management, tournaments, and more.">
+  <meta property="og:image" content="https://imagedelivery.net/FIZL8110j4px64kO6qJxWA/f98bc941jdaefj4cafj884cj95ca8aee933f/public">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="Gacky Discord Bot - Your Ultimate Discord Companion">
+  <meta property="twitter:description" content="Built with jdoodle.ai - Gacky is the perfect Discord bot for server management, tournaments, and more.">
+  <meta property="twitter:image" content="https://imagedelivery.net/FIZL8110j4px64kO6qJxWA/f98bc941jdaefj4cafj884cj95ca8aee933f/public">
+  <title>Gacky Discord Bot</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="favicon.ico">
+</head>
+<body>
+  <div class="noise"></div>
+  
+  <header>
+    <nav>
+      <div class="logo">
+        <i class="fas fa-robot"></i>
+        <span>Gacky</span>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <i class="fas fa-times" id="closeMenu"></i>
+        <ul>
+          <li><a href="#home" class="nav-link">Home</a></li>
+          <li><a href="#features" class="nav-link">Features</a></li>
+          <li><a href="#commands" class="nav-link">Commands</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+        </ul>
+      </div>
+      <i class="fas fa-bars" id="openMenu"></i>
+    </nav>
+  </header>
+
+  <section id="home" class="hero-section">
+    <div class="hero-content">
+      <h1 class="glitch" data-text="Meet Gacky">Meet Gacky</h1>
+      <h2>Your Ultimate Discord Bot</h2>
+      <p>Enhance your Discord server with moderation tools, tournament management, and much more</p>
+      <div class="cta-buttons">
+        <a href="#" class="primary-btn glow-btn">
+          <i class="fas fa-plus-circle"></i> Invite Gacky
+        </a>
+        <a href="#features" class="secondary-btn">
+          <i class="fas fa-info-circle"></i> Learn More
+        </a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1531297484001-80022131f5a1?ixid=M3w3MjUzNDh8MHwxfHNlYXJjaHwxfHxmdXR1cmlzdGljJTIwcm9ib3QlMjBkaXNjb3JkJTIwYm90JTIwdGVjaHxlbnwwfHx8fDE3NDg4NDQwMTV8MA&ixlib=rb-4.1.0" alt="Futuristic Tech">
+    </div>
+  </section>
+
+  <section id="features" class="features-section">
+    <div class="section-header">
+      <h2>Features</h2>
+      <div class="underline"></div>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card" data-aos="fade-up">
+        <div class="feature-icon">
+          <i class="fas fa-shield-alt"></i>
+        </div>
+        <h3>Moderation</h3>
+        <ul>
+          <li>Auto-moderation & content filtering</li>
+          <li>Advanced user management</li>
+          <li>Customizable warning system</li>
+          <li>Detailed audit logs</li>
+        </ul>
+      </div>
+
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-icon">
+          <i class="fas fa-trophy"></i>
+        </div>
+        <h3>Tournament Management</h3>
+        <ul>
+          <li>Create & manage tournaments</li>
+          <li>Automatic bracket generation</li>
+          <li>Match scheduling & reminders</li>
+          <li>Result tracking & leaderboards</li>
+        </ul>
+      </div>
+
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-icon">
+          <i class="fas fa-cogs"></i>
+        </div>
+        <h3>Admin Setup</h3>
+        <ul>
+          <li>Custom role management</li>
+          <li>Welcome message configuration</li>
+          <li>Auto-role assignment</li>
+          <li>Permission management</li>
+        </ul>
+      </div>
+
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="feature-icon">
+          <i class="fas fa-tools"></i>
+        </div>
+        <h3>General Utilities</h3>
+        <ul>
+          <li>Polls & voting system</li>
+          <li>Custom commands</li>
+          <li>Server statistics</li>
+          <li>Timed announcements</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="commands" class="commands-section">
+    <div class="section-header">
+      <h2>Command Prefix</h2>
+      <div class="underline"></div>
+    </div>
+    <div class="command-content">
+      <div class="prefix-info">
+        <h3>Gacky uses the <span class="highlight">.</span> prefix</h3>
+        <p>All commands start with a dot, making them quick and easy to type!</p>
+      </div>
+      <div class="command-examples">
+        <div class="code-block">
+          <div class="code-header">
+            <span>Example Commands</span>
+            <button class="copy-btn" data-text=".help
+.ban @user reason
+.mute @user 10m
+.tournament create Name
+.poll Question option1 option2">
+              <i class="fas fa-copy"></i>
+            </button>
+          </div>
+          <pre><code>.help
+.ban @user reason
+.mute @user 10m
+.tournament create Name
+.poll Question option1 option2</code></pre>
+        </div>
+      </div>
+    </div>
+    <div class="matrix-bg">
+      <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?ixid=M3w3MjUzNDh8MHwxfHNlYXJjaHwyfHxmdXR1cmlzdGljJTIwcm9ib3QlMjBkaXNjb3JkJTIwYm90JTIwdGVjaHxlbnwwfHx8fDE3NDg4NDQwMTV8MA&ixlib=rb-4.1.0" alt="Code Matrix">
+    </div>
+  </section>
+
+  <section id="about" class="about-section">
+    <div class="section-header">
+      <h2>About Gacky</h2>
+      <div class="underline"></div>
+    </div>
+    <div class="about-content">
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1486475554424-2fa50cd59f18?ixid=M3w3MjUzNDh8MHwxfHNlYXJjaHw0fHxmdXR1cmlzdGljJTIwcm9ib3QlMjBkaXNjb3JkJTIwYm90JTIwdGVjaHxlbnwwfHx8fDE3NDg4NDQwMTV8MA&ixlib=rb-4.1.0" alt="Gacky Bot Visual">
+        <div class="image-overlay"></div>
+      </div>
+      <div class="about-text">
+        <p>Gacky is a powerful, versatile Discord bot designed to enhance your server experience. Built with cutting-edge technology, Gacky offers seamless moderation, tournament management, and customization options.</p>
+        <p>Our team of developers continuously updates Gacky with new features and improvements based on community feedback.</p>
+        <p>With zero downtime and lightning-fast response, Gacky is the reliable assistant your Discord server needs.</p>
+        <div class="stats-container">
+          <div class="stat-item">
+            <span class="stat-number" data-count="500">0</span>
+            <span class="stat-label">Servers</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-count="50000">0</span>
+            <span class="stat-label">Users</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number" data-count="99.9">0</span>
+            <span class="stat-label">Uptime %</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="cta-content">
+      <h2>Ready to enhance your Discord server?</h2>
+      <p>Add Gacky to your server today and unlock its full potential</p>
+      <div class="cta-buttons">
+        <a href="#" class="primary-btn glow-btn">
+          <i class="fas fa-plus-circle"></i> Invite Gacky
+        </a>
+        <a href="#" class="discord-btn">
+          <i class="fab fa-discord"></i> Join Support Server
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <i class="fas fa-robot"></i>
+        <span>Gacky</span>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#commands">Commands</a></li>
+            <li><a href="#about">About</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Status</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="#"><i class="fab fa-discord"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2024 Gacky Discord Bot. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
+  
