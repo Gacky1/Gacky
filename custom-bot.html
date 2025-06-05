@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gacky Custom Bot Service</title>
+  <meta name="description" content="Order your own custom Discord bot with Gacky. Get a bot tailored to your needs with advanced features, branding, and support.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="https://imagedelivery.net/FIZL8110j4px64kO6qJxWA/32e2820a-14fc-4501-73b7-7e06aebf4700/public">
+</head>
+<body>
+  <div class="noise"></div>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="https://imagedelivery.net/FIZL8110j4px64kO6qJxWA/32e2820a-14fc-4501-73b7-7e06aebf4700/public" alt="Gacky Logo" class="logo-img">
+        <span>Gacky</span>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <i class="fas fa-times" id="closeMenu"></i>
+        <ul>
+          <li><a href="index.html#home" class="nav-link">Home</a></li>
+          <li><a href="index.html#features" class="nav-link">Features</a></li>
+          <li><a href="index.html#commands" class="nav-link">Commands</a></li>
+          <li><a href="index.html#about" class="nav-link">About</a></li>
+          <li><a href="index.html#developer" class="nav-link">Developer</a></li>
+          <li><a href="index.html#discord" class="nav-link">Discord</a></li>
+          <li><a href="premium.html" class="nav-link">Premium</a></li>
+          <li><a href="custom-bot.html" class="nav-link active">Custom Bot</a></li>
+        </ul>
+      </div>
+      <i class="fas fa-bars" id="openMenu"></i>
+    </nav>
+  </header>
+
+  <section class="hero-section" style="min-height: 60vh;">
+    <div class="hero-content">
+      <h1 class="glitch" data-text="Custom Discord Bot">Custom Discord Bot</h1>
+      <h2>Get Your Own Bot, Built by Gacky</h2>
+      <p>Want a Discord bot tailored to your community, brand, or business? Order a custom bot with features, branding, and support designed just for you.</p>
+      <div class="cta-buttons">
+        <a href="#customBotForm" class="primary-btn glow-btn">Request Now</a>
+        <a href="https://discord.gg/q76gbtbMm9" class="secondary-btn"><i class="fab fa-discord"></i> Support Server</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=fillmax&w=600&q=80" alt="Custom Bot Visual">
+    </div>
+  </section>
+
+  <section class="features-section">
+    <div class="section-header">
+      <h2>Why Choose a Custom Bot?</h2>
+      <div class="underline"></div>
+    </div>
+    <div class="features-grid" style="gap:2.5rem;">
+      <div class="feature-card" data-aos="fade-up">
+        <div class="feature-icon"><i class="fas fa-cogs"></i></div>
+        <h3>Tailored Features</h3>
+        <ul>
+          <li>Custom commands & automations</li>
+          <li>Unique moderation tools</li>
+          <li>Integrations with APIs</li>
+        </ul>
+      </div>
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-icon"><i class="fas fa-paint-brush"></i></div>
+        <h3>Branding</h3>
+        <ul>
+          <li>Custom name & avatar</li>
+          <li>Personalized status</li>
+          <li>Brand colors & style</li>
+        </ul>
+      </div>
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-icon"><i class="fas fa-headset"></i></div>
+        <h3>Support</h3>
+        <ul>
+          <li>Direct support from Gacky team</li>
+          <li>Bug fixes & updates</li>
+          <li>Guidance for setup</li>
+        </ul>
+      </div>
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="feature-icon"><i class="fas fa-rocket"></i></div>
+        <h3>Scalability</h3>
+        <ul>
+          <li>Ready for large communities</li>
+          <li>Performance optimized</li>
+          <li>Cloud hosting options</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="section-header">
+      <h2>How It Works</h2>
+      <div class="underline"></div>
+    </div>
+    <div class="about-content">
+      <div class="about-image">
+        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=fillmax&w=600&q=80" alt="Bot Development">
+        <div class="image-overlay"></div>
+      </div>
+      <div class="about-text">
+        <ol style="color:var(--gray-text);font-size:1.1rem;line-height:2;">
+          <li><b>Submit your requirements</b> using the form below.</li>
+          <li><b>We discuss your needs</b> and provide a quote.</li>
+          <li><b>Development begins</b> after agreement.</li>
+          <li><b>Get your custom bot</b> delivered and supported!</li>
+        </ol>
+        <p style="margin-top:2rem;">Questions? <a href="https://discord.gg/q76gbtbMm9" class="secondary-btn" style="display:inline-block;">Contact Support</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section" id="customBotForm">
+    <div class="section-header">
+      <h2>Request Your Custom Bot</h2>
+      <div class="underline"></div>
+      <p style="color: var(--gray-text); margin-top: 1rem;">Fill out the form and we will contact you on Discord for details and pricing.</p>
+    </div>
+    <div style="max-width:500px;margin:0 auto;">
+      <form id="customBotRequestForm" style="background:var(--card-bg);padding:2rem 2.5rem;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.3);">
+        <div style="margin-bottom:1rem;">
+          <label for="name" style="font-weight:500;">Name</label>
+          <input type="text" id="name" name="name" required style="width:100%;padding:0.5rem;margin-top:0.3rem;border-radius:5px;border:1px solid #333;background:rgba(30,30,50,0.2);color:#fff;">
+        </div>
+        <div style="margin-bottom:1rem;">
+          <label for="discord" style="font-weight:500;">Discord Tag (e.g. User#1234)</label>
+          <input type="text" id="discord" name="discord" required pattern="^.{2,32}#[0-9]{4}$" style="width:100%;padding:0.5rem;margin-top:0.3rem;border-radius:5px;border:1px solid #333;background:rgba(30,30,50,0.2);color:#fff;">
+        </div>
+        <div style="margin-bottom:1rem;">
+          <label for="phone" style="font-weight:500;">Phone Number</label>
+          <input type="tel" id="phone" name="phone" required pattern="^[0-9+\-\s]{7,20}$" style="width:100%;padding:0.5rem;margin-top:0.3rem;border-radius:5px;border:1px solid #333;background:rgba(30,30,50,0.2);color:#fff;">
+        </div>
+        <div style="margin-bottom:1rem;">
+          <label for="server" style="font-weight:500;">Discord Server Invite Link</label>
+          <input type="url" id="server" name="server" required placeholder="https://discord.gg/..." style="width:100%;padding:0.5rem;margin-top:0.3rem;border-radius:5px;border:1px solid #333;background:rgba(30,30,50,0.2);color:#fff;">
+        </div>
+        <div style="margin-bottom:1rem;">
+          <label for="requirements" style="font-weight:500;">Bot Requirements / Features</label>
+          <textarea id="requirements" name="requirements" rows="3" required style="width:100%;padding:0.5rem;margin-top:0.3rem;border-radius:5px;border:1px solid #333;background:rgba(30,30,50,0.2);color:#fff;"></textarea>
+        </div>
+        <div style="margin-bottom:1rem;">
+          <label for="notes" style="font-weight:500;">Additional Notes (optional)</label>
+          <textarea id="notes" name="notes" rows="2" style="width:100%;padding:0.5rem;margin-top:0.3rem;border-radius:5px;border:1px solid #333;background:rgba(30,30,50,0.2);color:#fff;"></textarea>
+        </div>
+        <button type="submit" class="primary-btn glow-btn" style="width:100%;margin-top:1rem;">Submit Request</button>
+        <div id="customBotFormMsg" style="margin-top:1rem;text-align:center;font-weight:500;"></div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="https://imagedelivery.net/FIZL8110j4px64kO6qJxWA/32e2820a-14fc-4501-73b7-7e06aebf4700/public" alt="Gacky Logo" class="footer-logo-img">
+        <span>Gacky</span>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Links</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#commands">Commands</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#developer">Developer</a></li>
+            <li><a href="index.html#discord">Discord</a></li>
+            <li><a href="premium.html">Premium</a></li>
+            <li><a href="custom-bot.html">Custom Bot</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Status</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="https://discord.gg/q76gbtbMm9"><i class="fab fa-discord"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Gacky Discord Bot. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+  // Custom Bot Request Form Submission
+  const customBotForm = document.getElementById('customBotRequestForm');
+  const customBotMsg = document.getElementById('customBotFormMsg');
+  if(customBotForm) {
+    customBotForm.addEventListener('submit', async function(e) {
+      e.preventDefault();
+      customBotMsg.textContent = 'Submitting...';
+      const data = {
+        name: customBotForm.name.value,
+        discord: customBotForm.discord.value,
+        phone: customBotForm.phone.value,
+        server: customBotForm.server.value,
+        requirements: customBotForm.requirements.value,
+        notes: customBotForm.notes.value
+      };
+      // Discord webhook URL (replace with your actual webhook)
+      const webhookUrl = 'https://discord.com/api/webhooks/1380274565724373155/purNL2x0K9xNXCEuxFqqA9BUnG_vgfwc56E462U9punfhnDUeRSHudnhcS_8-lYv06oH';
+      const content = `**New Custom Bot Request**\n**Name:** ${data.name}\n**Discord Tag:** ${data.discord}\n**Phone:** ${data.phone}\n**Server Invite:** ${data.server}\n**Requirements:** ${data.requirements}\n**Notes:** ${data.notes ? data.notes : 'N/A'}`;
+      try {
+        const res = await fetch(webhookUrl, {
+          method: 'POST',
+          headers: {'Content-Type': 'application/json'},
+          body: JSON.stringify({ content })
+        });
+        if (res.ok) {
+          customBotMsg.style.color = 'var(--accent-color)';
+          customBotMsg.textContent = 'Submitted! We will contact you soon on Discord.';
+          customBotForm.reset();
+        } else {
+          throw new Error('Failed to send');
+        }
+      } catch (err) {
+        customBotMsg.style.color = 'red';
+        customBotMsg.textContent = 'Error submitting. Please try again or contact support.';
+      }
+    });
+  }
+  </script>
+</body>
+</html>
