@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vote for Gacky</title>
+  <meta name="description" content="Please vote for Gacky on Top.gg to show your support!">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="https://imagedelivery.net/FIZL8110j4px64kO6qJxWA/32e2820a-14fc-4501-73b7-7e06aebf4700/public">
+</head>
+<body>
+  <div class="noise"></div>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="https://imagedelivery.net/FIZL8110j4px64kO6qJxWA/32e2820a-14fc-4501-73b7-7e06aebf4700/public" alt="Gacky Logo" class="logo-img">
+        <span>Gacky</span>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <i class="fas fa-times" id="closeMenu"></i>
+        <ul>
+          <li><a href="index.html#home" class="nav-link">Home</a></li>
+          <li><a href="index.html#features" class="nav-link">Features</a></li>
+          <li><a href="index.html#commands" class="nav-link">Commands</a></li>
+          <li><a href="index.html#about" class="nav-link">About</a></li>
+          <li><a href="index.html#developer" class="nav-link">Developer</a></li>
+          <li><a href="index.html#discord" class="nav-link">Discord</a></li>
+          <li><a href="premium.html" class="nav-link">Premium</a></li>
+          <li><a href="custom-bot.html" class="nav-link">Custom Bot</a></li>
+          <li><a href="vote.html" class="nav-link active">Vote</a></li>
+        </ul>
+      </div>
+      <i class="fas fa-bars" id="openMenu"></i>
+    </nav>
+  </header>
+
+  <section class="hero-section" style="min-height: 60vh; display:flex; align-items:center; justify-content:center;">
+    <div class="hero-content" style="text-align:center; width:100%;">
+      <h1 class="glitch" data-text="Vote for Gacky">Vote for Gacky</h1>
+      <h2>Show Your Support!</h2>
+      <p style="color:var(--gray-text);font-size:1.2rem;max-width:500px;margin:1.5rem auto;">If you love using Gacky, please vote for us on Top.gg! Your vote helps us grow and bring more awesome features to the community. Thank you for your support!</p>
+      <button id="voteBtn" class="primary-btn glow-btn" style="font-size:1.2rem;min-width:200px;margin-bottom:1rem;">
+        <i class="fas fa-vote-yea"></i> Vote on Top.gg
+      </button>
+      <div id="voteCount" style="color:var(--accent-color);font-size:1.1rem;margin-top:0.5rem;">Vote button clicked ... times</div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="https://imagedelivery.net/FIZL8110j4px64kO6qJxWA/32e2820a-14fc-4501-73b7-7e06aebf4700/public" alt="Gacky Logo" class="footer-logo-img">
+        <span>Gacky</span>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Links</h4>
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="index.html#commands">Commands</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#developer">Developer</a></li>
+            <li><a href="index.html#discord">Discord</a></li>
+            <li><a href="premium.html">Premium</a></li>
+            <li><a href="custom-bot.html">Custom Bot</a></li>
+            <li><a href="vote.html">Vote</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="#">Documentation</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Status</a></li>
+            <li><a href="#">Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="https://discord.gg/q76gbtbMm9"><i class="fab fa-discord"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Gacky Discord Bot. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    // Use npoint.io for global vote count (GET and PATCH)
+    const voteBtn = document.getElementById('voteBtn');
+    const voteCount = document.getElementById('voteCount');
+    const ENDPOINT = 'https://api.npoint.io/a22325d13355ce253e6d';
+    // Fetch and display current count
+    function updateVoteCount() {
+      fetch(ENDPOINT)
+        .then(res => res.json())
+        .then(data => {
+          voteCount.textContent = `Vote button clicked ${data.count} times`;
+        });
+    }
+    updateVoteCount();
+    voteBtn.addEventListener('click', function() {
+      // Get current count, then PATCH increment
+      fetch(ENDPOINT)
+        .then(res => res.json())
+        .then(data => {
+          const newCount = (data.count || 0) + 1;
+          voteCount.textContent = `Vote button clicked ${newCount} times`;
+          // PATCH the new count (requires npoint.io API key and CORS support)
+          fetch(ENDPOINT, {
+            method: 'PATCH',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ count: newCount })
+          });
+          window.open('https://top.gg/bot/1379901503715803166', '_blank');
+        });
+    });
+  </script>
+</body>
+</html>
