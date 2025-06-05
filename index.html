@@ -51,7 +51,7 @@
       <h2>Your Ultimate Discord Bot</h2>
       <p>Enhance your Discord server with moderation tools, tournament management, and much more</p>
       <div class="cta-buttons">
-        <a href="https://discord.com/oauth2/authorize?client_id=1120626738548973599&permissions=8&integration_type=0&scope=bot" class="primary-btn glow-btn">
+        <a href="#" id="inviteGackyBtn" class="primary-btn glow-btn">
           <i class="fas fa-plus-circle"></i> Invite Gacky
         </a>
         <a href="https://discord.gg/q76gbtbMm9" class="secondary-btn">
@@ -253,7 +253,7 @@
       <h2>Ready to enhance your Discord server?</h2>
       <p>Add Gacky to your server today and unlock its full potential</p>
       <div class="cta-buttons abc">
-        <a href="https://discord.com/oauth2/authorize?client_id=1120626738548973599&permissions=8&integration_type=0&scope=bot" class="primary-btn glow-btn">
+        <a href="https://gacky.pages.dev" id="inviteGackyBtn" class="primary-btn glow-btn">
           <i class="fas fa-plus-circle"></i> Invite Gacky
         </a>
         <a href="https://discord.com/invite/q76gbtbMm9" class="discord-btn">
@@ -305,6 +305,42 @@
     </div>
   </footer>
 
+  <!-- Invite Bot Modal -->
+<div id="inviteModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(10,10,16,0.85); z-index:9999; align-items:center; justify-content:center;">
+  <div style="background:var(--card-bg); padding:2rem 2.5rem; border-radius:12px; max-width:400px; width:90%; box-shadow:0 8px 32px rgba(0,0,0,0.3); position:relative;">
+    <button type="button" id="closeInviteModal" style="position:absolute; top:1rem; right:1rem; background:none; border:none; color:var(--gray-text); font-size:1.5rem; cursor:pointer;"><i class="fas fa-times"></i></button>
+    <h2 style="text-align:center; margin-bottom:1.5rem;">Invite Gacky</h2>
+    <div style="margin-bottom:2rem;">
+      <h3 style="margin-bottom:0.5rem;">Gacky (Main Bot)</h3>
+      <p style="color:var(--gray-text);margin-bottom:0.7rem;">For using it you have to talk to admin.</p>
+      <a href="https://discord.com/oauth2/authorize?client_id=1120626738548973599&permissions=8&integration_type=0&scope=bot" class="primary-btn" style="width:100%;display:inline-block;text-align:center;margin-bottom:1rem;">Invite Gacky</a>
+    </div>
+    <div>
+      <h3 style="margin-bottom:0.5rem;">Gacky v2</h3>
+      <p style="color:var(--gray-text);margin-bottom:0.7rem;">You can use it for tournament management.</p>
+      <a href="https://discord.com/oauth2/authorize?client_id=1379901503715803166&permissions=8&integration_type=0&scope=bot" class="primary-btn" style="width:100%;display:inline-block;text-align:center;">Invite Gacky v2</a>
+    </div>
+  </div>
+</div>
+
   <script src="script.js"></script>
+  <script>
+// Invite Bot Modal logic
+const inviteBtn = document.getElementById('inviteGackyBtn');
+const inviteModal = document.getElementById('inviteModal');
+const closeInviteModal = document.getElementById('closeInviteModal');
+if(inviteBtn && inviteModal && closeInviteModal) {
+  inviteBtn.addEventListener('click', function(e) {
+    e.preventDefault();
+    inviteModal.style.display = 'flex';
+  });
+  closeInviteModal.addEventListener('click', function() {
+    inviteModal.style.display = 'none';
+  });
+  window.addEventListener('click', function(e) {
+    if(e.target === inviteModal) inviteModal.style.display = 'none';
+  });
+}
+</script>
 </body>
 </html>
