@@ -12,33 +12,135 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="icon" type="image/png" href="https://imagedelivery.net/FIZL8110j4px64kO6qJxWA/32e2820a-14fc-4501-73b7-7e06aebf4700/public">
   <style>
-    .star-rating {
+    .reviews-list {
+      max-width: 1200px;
+      margin: 2rem auto 1rem auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem 1.5rem;
+    }
+    @media (max-width: 900px) {
+      .reviews-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .reviews-list {
+        grid-template-columns: 1fr;
+      }
+    }
+    .review-card {
+      background: linear-gradient(120deg, #232b3b 60%, #00ffff11 100%);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px 0 #00ffff22, 0 2px 8px #0008;
+      padding: 2rem 2rem 1.5rem 2rem;
       display: flex;
-      flex-direction: row-reverse;
-      justify-content: center;
-      font-size: 2rem;
-      margin-bottom: 1rem;
+      gap: 1.5rem;
+      align-items: flex-start;
+      border: 1.5px solid #00ffff44;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.15s, box-shadow 0.15s;
+      min-width: 0;
     }
-    .star-rating input[type="radio"] {
-      display: none;
+    .review-card:hover {
+      transform: translateY(-4px) scale(1.015);
+      box-shadow: 0 16px 48px 0 #00ffff33, 0 4px 16px #000a;
     }
-    .star-rating label {
-      color: #ccc;
-      cursor: pointer;
+    .review-server-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #222;
+      border: 2.5px solid #00FFFF;
+      box-shadow: 0 0 12px #00ffff44;
+      flex-shrink: 0;
+    }
+    .review-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .review-server-name {
+      font-weight: 800;
+      font-size: 1.18rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #00FFFF;
+      letter-spacing: 0.5px;
+    }
+    .review-server-link {
+      color: #00FFFF;
+      font-size: 1.1rem;
+      text-decoration: none;
+      margin-left: 0.3rem;
       transition: color 0.2s;
     }
-    .star-rating input[type="radio"]:checked ~ label,
-    .star-rating label:hover,
-    .star-rating label:hover ~ label {
-      color: #00FFFF;
+    .review-server-link:hover {
+      color: #00cccc;
+      text-decoration: underline;
+    }
+    .review-discord-tag {
+      color: var(--gray-text, #aaa);
+      font-size: 1rem;
+      margin-bottom: 0.1rem;
+      font-weight: 500;
+    }
+    .review-rating {
+      color: #FFD700;
+      font-size: 1.2rem;
+      margin-bottom: 0.2rem;
+      letter-spacing: 1px;
+      text-shadow: 0 0 6px #00ffff33;
+      font-weight: 700;
+    }
+    .review-message {
+      margin-bottom: 0.2rem;
+      font-size: 1.08rem;
+      color: #e6faff;
+      font-weight: 500;
+      line-height: 1.6;
+      padding: 0.2rem 0 0.2rem 0;
+    }
+    .submit-review-btn {
+      display: block;
+      margin: 2.5rem auto 0 auto;
+      padding: 0.8rem 2.2rem;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      background: #00FFFF;
+      color: #181c24;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .submit-review-btn:hover {
+      background: #00cccc;
+    }
+    #reviewModal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(10,10,16,0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+    #reviewModal.active {
+      display: flex;
     }
     .review-form {
       background: var(--card-bg, #181c24);
       padding: 2rem 2.5rem;
       border-radius: 12px;
       max-width: 420px;
-      margin: 2rem auto;
+      width: 92vw;
       box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      position: relative;
     }
     .review-form input, .review-form textarea {
       width: 100%;
@@ -64,6 +166,232 @@
     }
     .review-success { color: var(--accent-color, #00FFFF);}
     .review-error { color: #ff4d4d;}
+    .close-modal-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: var(--gray-text, #aaa);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .star-rating {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      gap: 0.2rem;
+    }
+    .star-rating input[type="radio"] {
+      display: none;
+    }
+    .star-rating label {
+      color: #444;
+      cursor: pointer;
+      transition: color 0.2s;
+      filter: drop-shadow(0 0 2px #00ffff44);
+    }
+    .star-rating input[type="radio"]:checked ~ label,
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+      color: #00FFFF;
+      text-shadow: 0 0 8px #00ffff99;
+    }
+    .star-rating label:active {
+      transform: scale(0.95);
+    }
+    .reviews-list {
+      max-width: 1200px;
+      margin: 2rem auto 1rem auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem 1.5rem;
+    }
+    @media (max-width: 900px) {
+      .reviews-list {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    @media (max-width: 600px) {
+      .reviews-list {
+        grid-template-columns: 1fr;
+      }
+    }
+    .review-card {
+      background: linear-gradient(120deg, #232b3b 60%, #00ffff11 100%);
+      border-radius: 18px;
+      box-shadow: 0 8px 32px 0 #00ffff22, 0 2px 8px #0008;
+      padding: 2rem 2rem 1.5rem 2rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+      border: 1.5px solid #00ffff44;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.15s, box-shadow 0.15s;
+      min-width: 0;
+    }
+    .review-card:hover {
+      transform: translateY(-4px) scale(1.015);
+      box-shadow: 0 16px 48px 0 #00ffff33, 0 4px 16px #000a;
+    }
+    .review-server-icon {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #222;
+      border: 2.5px solid #00FFFF;
+      box-shadow: 0 0 12px #00ffff44;
+      flex-shrink: 0;
+    }
+    .review-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+    }
+    .review-server-name {
+      font-weight: 800;
+      font-size: 1.18rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: #00FFFF;
+      letter-spacing: 0.5px;
+    }
+    .review-server-link {
+      color: #00FFFF;
+      font-size: 1.1rem;
+      text-decoration: none;
+      margin-left: 0.3rem;
+      transition: color 0.2s;
+    }
+    .review-server-link:hover {
+      color: #00cccc;
+      text-decoration: underline;
+    }
+    .review-discord-tag {
+      color: var(--gray-text, #aaa);
+      font-size: 1rem;
+      margin-bottom: 0.1rem;
+      font-weight: 500;
+    }
+    .review-rating {
+      color: #FFD700;
+      font-size: 1.2rem;
+      margin-bottom: 0.2rem;
+      letter-spacing: 1px;
+      text-shadow: 0 0 6px #00ffff33;
+      font-weight: 700;
+    }
+    .review-message {
+      margin-bottom: 0.2rem;
+      font-size: 1.08rem;
+      color: #e6faff;
+      font-weight: 500;
+      line-height: 1.6;
+      padding: 0.2rem 0 0.2rem 0;
+    }
+    .submit-review-btn {
+      display: block;
+      margin: 2.5rem auto 0 auto;
+      padding: 0.8rem 2.2rem;
+      font-size: 1.1rem;
+      border-radius: 8px;
+      background: #00FFFF;
+      color: #181c24;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .submit-review-btn:hover {
+      background: #00cccc;
+    }
+    #reviewModal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      background: rgba(10,10,16,0.85);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+    #reviewModal.active {
+      display: flex;
+    }
+    .review-form {
+      background: var(--card-bg, #181c24);
+      padding: 2rem 2.5rem;
+      border-radius: 12px;
+      max-width: 420px;
+      width: 92vw;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.2);
+      position: relative;
+    }
+    .review-form input, .review-form textarea {
+      width: 100%;
+      padding: 0.5rem;
+      margin-top: 0.3rem;
+      border-radius: 5px;
+      border: 1px solid #333;
+      background: rgba(30,30,50,0.2);
+      color: #fff;
+      margin-bottom: 1rem;
+    }
+    .review-form label {
+      font-weight: 500;
+    }
+    .review-form button {
+      width: 100%;
+      margin-top: 1rem;
+    }
+    .review-success, .review-error {
+      text-align: center;
+      margin-top: 1rem;
+      font-weight: 500;
+    }
+    .review-success { color: var(--accent-color, #00FFFF);}
+    .review-error { color: #ff4d4d;}
+    .close-modal-btn {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      background: none;
+      border: none;
+      color: var(--gray-text, #aaa);
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+    .star-rating {
+      display: flex;
+      flex-direction: row-reverse;
+      justify-content: flex-start;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      gap: 0.2rem;
+    }
+    .star-rating input[type="radio"] {
+      display: none;
+    }
+    .star-rating label {
+      color: #444;
+      cursor: pointer;
+      transition: color 0.2s;
+      filter: drop-shadow(0 0 2px #00ffff44);
+    }
+    .star-rating input[type="radio"]:checked ~ label,
+    .star-rating label:hover,
+    .star-rating label:hover ~ label {
+      color: #00FFFF;
+      text-shadow: 0 0 8px #00ffff99;
+    }
+    .star-rating label:active {
+      transform: scale(0.95);
+    }
   </style>
 </head>
 <body>
@@ -96,17 +424,31 @@
   <section class="hero-section" style="min-height: 40vh; display:flex; align-items:center; justify-content:center;">
     <div class="hero-content" style="text-align:center; width:100%;">
       <h1 class="glitch" data-text="Gacky Reviews">Gacky Reviews</h1>
-      <h2>Share Your Experience!</h2>
+      <h2>What our users say!</h2>
       <p style="color:var(--gray-text);font-size:1.2rem;max-width:500px;margin:1.5rem auto;">
-        We value your feedback! Please leave a review about your experience with Gacky. Your review will help us improve and grow.
+        Read what others think about Gacky. Want to share your experience? Scroll down and submit your own review!
       </p>
     </div>
   </section>
 
   <section>
+    <div class="reviews-list" id="reviewsList">
+      <!-- Reviews will be rendered here -->
+    </div>
+    <button class="view-all-btn" id="viewAllBtn" style="display:none;"><i class="fas fa-eye"></i> View All</button>
+    <button class="submit-review-btn" id="openReviewModal"><i class="fas fa-pen"></i> Submit a Review</button>
+  </section>
+
+  <!-- Modal for review form -->
+  <div id="reviewModal">
     <form class="review-form" id="reviewForm" autocomplete="off">
+      <button type="button" class="close-modal-btn" id="closeReviewModal"><i class="fas fa-times"></i></button>
+      <h2 style="margin-bottom:1.5rem; text-align:center;">Submit a Review</h2>
       <label for="server">Server Name</label>
       <input type="text" id="server" name="server" required placeholder="Your Discord Server Name">
+
+      <label for="serverLink">Server Invite Link</label>
+      <input type="url" id="serverLink" name="serverLink" required placeholder="https://discord.gg/yourserver">
 
       <label for="discord">Discord Tag (e.g. User#1234)</label>
       <input type="text" id="discord" name="discord" required pattern="^.{2,32}$" placeholder="Your Discord Tag">
@@ -114,8 +456,8 @@
       <label for="review">Your Review</label>
       <textarea id="review" name="review" rows="3" required placeholder="Share your experience..."></textarea>
 
-      <label>Rating</label>
-      <div class="star-rating">
+      <label style="margin-bottom:0.2rem;">Rating</label>
+      <div class="star-rating" id="starRating">
         <input type="radio" id="star5" name="rating" value="5" required><label for="star5" title="5 stars">&#9733;</label>
         <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stars">&#9733;</label>
         <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stars">&#9733;</label>
@@ -126,7 +468,7 @@
       <button type="submit" class="primary-btn glow-btn"><i class="fas fa-paper-plane"></i> Submit Review</button>
       <div id="reviewMsg"></div>
     </form>
-  </section>
+  </div>
 
   <footer>
     <div class="footer-content">
@@ -175,26 +517,118 @@
   </footer>
   <script src="script.js"></script>
   <script>
-    // Review form submission
+    // --- Clean, simple reviews rendering with View More/Less toggle, loading from reviews.json ---
+    let reviews = [];
+    let reviewsLoaded = false;
+
+    async function fetchReviews() {
+      try {
+        const res = await fetch('reviews.json', {cache: 'no-store'});
+        if (!res.ok) throw new Error('Failed to load reviews');
+        reviews = await res.json();
+        reviewsLoaded = true;
+        renderReviews(false);
+      } catch (e) {
+        document.getElementById('reviewsList').innerHTML = '<div style="color:#ff4d4d;text-align:center;font-size:1.2rem;">Failed to load reviews.</div>';
+      }
+    }
+
+    function createReviewCard(r, iconUrl, showFull) {
+      const maxLen = 220;
+      const isLong = r.review.length > maxLen;
+      const reviewText = isLong && !showFull ? r.review.slice(0, maxLen) + '...' : r.review;
+      const toggleBtn = isLong ? `<button class="review-toggle-btn" type="button">${showFull ? 'View Less' : 'View More'}</button>` : '';
+      return `
+        <div class="review-card">
+          <img class="review-server-icon" src="${iconUrl}" alt="Server Icon">
+          <div class="review-content">
+            <div class="review-server-name">${r.server}
+              <a href="${r.serverLink}" class="review-server-link" target="_blank" title="Join Server"><i class="fab fa-discord"></i></a>
+            </div>
+            <div class="review-discord-tag">${r.discord}</div>
+            <div class="review-rating"><span style="color:#FFD700;font-size:1.3rem;">${'★'.repeat(Number(r.rating))}</span><span style="color:#00FFFF;font-size:1.1rem;margin-left:0.3rem;">(${r.rating}/5)</span></div>
+            <div class="review-message" data-full="${isLong && showFull ? '1' : ''}">${reviewText}${toggleBtn}</div>
+          </div>
+        </div>
+      `;
+    }
+
+    async function renderReviews(showAll = false) {
+      if (!reviewsLoaded) return;
+      const list = document.getElementById('reviewsList');
+      const viewAllBtn = document.getElementById('viewAllBtn');
+      const sorted = [...reviews].sort((a, b) => b.rating - a.rating);
+      const toShow = showAll ? sorted : sorted.slice(0, 6);
+      // Fetch icons in parallel
+      const iconPromises = toShow.map(r =>
+        r.serverLink ? fetch(`https://discord.com/api/v10/invites/${r.serverLink.replace(/(https?:\/\/)?(www\.)?discord(\.gg|app\.com\/invite)\//, '').split(/[/?]/)[0]}?with_counts=true&with_expiration=true`)
+          .then(res => res.ok ? res.json() : null)
+          .then(data => data && data.guild && data.guild.icon ? `https://cdn.discordapp.com/icons/${data.guild.id}/${data.guild.icon}.png?size=128` : 'https://cdn.discordapp.com/embed/avatars/0.png')
+          .catch(() => 'https://cdn.discordapp.com/embed/avatars/0.png')
+        : Promise.resolve('https://cdn.discordapp.com/embed/avatars/0.png')
+      );
+      const icons = await Promise.all(iconPromises);
+      list.innerHTML = toShow.map((r, i) => createReviewCard(r, icons[i], false)).join('');
+      // Show/hide View All button
+      if (sorted.length > 6 && !showAll) {
+        viewAllBtn.style.display = 'inline-block';
+      } else {
+        viewAllBtn.style.display = 'none';
+      }
+    }
+
+    // Toggle View More/Less for long reviews
+    document.getElementById('reviewsList').onclick = function(e) {
+      if (e.target.classList.contains('review-toggle-btn')) {
+        const msg = e.target.closest('.review-message');
+        const isFull = msg.getAttribute('data-full') === '1';
+        const card = msg.closest('.review-card');
+        const idx = Array.from(document.querySelectorAll('.review-card')).indexOf(card);
+        const showAll = document.getElementById('viewAllBtn').style.display === 'none';
+        const sorted = [...reviews].sort((a, b) => b.rating - a.rating);
+        const toShow = showAll ? sorted : sorted.slice(0, 6);
+        const iconUrl = card.querySelector('.review-server-icon').src;
+        msg.outerHTML = createReviewCard(toShow[idx], iconUrl, !isFull);
+      }
+    };
+
+    document.getElementById('viewAllBtn').onclick = () => renderReviews(true);
+    // Optionally add a View Less button if you want to toggle back
+    // document.getElementById('viewLessBtn').onclick = () => renderReviews(false);
+
+    fetchReviews();
+  </script>
+  <script>
+    // --- Review form submission to Discord webhook ---
+    // Modal open/close logic
+    document.getElementById('openReviewModal').onclick = function() {
+      document.getElementById('reviewModal').classList.add('active');
+    };
+    document.getElementById('closeReviewModal').onclick = function() {
+      document.getElementById('reviewModal').classList.remove('active');
+    };
+    window.addEventListener('click', function(e) {
+      if (e.target === document.getElementById('reviewModal')) {
+        document.getElementById('reviewModal').classList.remove('active');
+      }
+    });
+    // --- Review form submission to Discord webhook ---
     const reviewForm = document.getElementById('reviewForm');
     const reviewMsg = document.getElementById('reviewMsg');
     reviewForm.addEventListener('submit', async function(e) {
       e.preventDefault();
       reviewMsg.textContent = "Submitting...";
       reviewMsg.className = "";
-
       // Collect form data
       const server = reviewForm.server.value.trim();
+      const serverLink = reviewForm.serverLink.value.trim();
       const discord = reviewForm.discord.value.trim();
       const review = reviewForm.review.value.trim();
       const rating = reviewForm.rating.value;
-
       // Discord webhook URL (replace with your actual webhook)
       const webhookUrl = 'https://discord.com/api/webhooks/1380770396592148491/sNZDwT5yXUXZ_XUCi0BHv_-FE-SaGBxaslJb7lSqLsTYCEUwV-piV4x3Stf1UjGP3D28';
-
       // Star emoji for rating
       const stars = '⭐'.repeat(Number(rating));
-
       // Discord embed payload
       const payload = {
         embeds: [{
@@ -202,6 +636,7 @@
           color: 0x00FFFF,
           fields: [
             { name: "Server Name", value: server, inline: false },
+            { name: "Server Link", value: serverLink, inline: false },
             { name: "Discord Tag", value: discord, inline: false },
             { name: "Review", value: review, inline: false },
             { name: "Rating", value: stars + ` (${rating}/5)`, inline: false }
@@ -209,7 +644,6 @@
           timestamp: new Date().toISOString()
         }]
       };
-
       try {
         const res = await fetch(webhookUrl, {
           method: 'POST',
@@ -220,6 +654,7 @@
           reviewMsg.textContent = "Thank you for your review!";
           reviewMsg.className = "review-success";
           reviewForm.reset();
+          setTimeout(() => document.getElementById('reviewModal').classList.remove('active'), 1500);
         } else {
           throw new Error('Failed to send');
         }
