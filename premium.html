@@ -218,7 +218,7 @@
   <script src="script.js"></script>
 <!-- Modal Form for Premium Purchase -->
 <div id="premiumModal" style="display:none; position:fixed; top:0; left:0; width:100vw; height:100vh; background:rgba(10,10,16,0.85); z-index:9999; align-items:center; justify-content:center;">
-  <form id="premiumForm" style="background:var(--card-bg); padding:2rem 2.5rem; border-radius:12px; max-width:400px; width:90%; box-shadow:0 8px 32px rgba(0,0,0,0.3); position:relative;">
+  <form   action="https://formspree.io/f/xkgboyed" method="POST" id="premiumForm" style="background:var(--card-bg); padding:2rem 2.5rem; border-radius:12px; max-width:400px; width:90%; box-shadow:0 8px 32px rgba(0,0,0,0.3); position:relative;">
     <button type="button" id="closePremiumModal" style="position:absolute; top:1rem; right:1rem; background:none; border:none; color:var(--gray-text); font-size:1.5rem; cursor:pointer;"><i class="fas fa-times"></i></button>
     <h2 style="margin-bottom:1.5rem; text-align:center;">Premium Purchase</h2>
     <input type="hidden" id="planInput" name="plan">
@@ -250,7 +250,6 @@
 // Modal logic
 const modal = document.getElementById('premiumModal');
 const closeModalBtn = document.getElementById('closePremiumModal');
-const form = document.getElementById('premiumForm');
 const msg = document.getElementById('premiumFormMsg');
 const planInput = document.getElementById('planInput');
 
@@ -270,52 +269,6 @@ window.addEventListener('click', (e) => {
   if (e.target === modal) modal.style.display = 'none';
 });
 
-// Form submission logic
-form.addEventListener('submit', async function(e) {
-  e.preventDefault();
-  msg.textContent = 'Submitting...';
-
-  // Collect form data
-  const data = {
-    plan: form.plan.value,
-    name: form.name.value,
-    discord: form.discord.value,
-    phone: form.phone.value,
-    server: form.server.value,
-    notes: form.notes.value
-  };
-
-  // Discord webhook URL (replace with your actual webhook)
-  const webhookUrl = 'https://discord.com/api/webhooks/1380274565724373155/purNL2x0K9xNXCEuxFqqA9BUnG_vgfwc56E462U9punfhnDUeRSHudnhcS_8-lYv06oH';
-
-  // Format message for Discord
-  const content = `**New Premium Purchase Request**
-**Plan:** ${data.plan}
-**Name:** ${data.name}
-**Discord Tag:** ${data.discord}
-**Phone:** ${data.phone}
-**Server Invite:** ${data.server}
-**Notes:** ${data.notes ? data.notes : 'N/A'}`;
-
-  try {
-    const res = await fetch(webhookUrl, {
-      method: 'POST',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify({ content })
-    });
-    if (res.ok) {
-      msg.style.color = 'var(--accent-color)';
-      msg.textContent = 'Submitted! We will contact you soon on Discord.';
-      form.reset();
-      setTimeout(() => { modal.style.display = 'none'; }, 2000);
-    } else {
-      throw new Error('Failed to send');
-    }
-  } catch (err) {
-    msg.style.color = 'red';
-    msg.textContent = 'Error submitting. Please try again or contact support.';
-  }
-});
 </script>
 </body>
 </html>

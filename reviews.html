@@ -441,7 +441,7 @@
 
   <!-- Modal for review form -->
   <div id="reviewModal">
-    <form class="review-form" id="reviewForm" autocomplete="off">
+    <form action="https://formspree.io/f/xrbkejvb" method="POST" class="review-form" id="reviewForm" autocomplete="off">
       <button type="button" class="close-modal-btn" id="closeReviewModal"><i class="fas fa-times"></i></button>
       <h2 style="margin-bottom:1.5rem; text-align:center;">Submit a Review</h2>
       <label for="server">Server Name</label>
@@ -613,56 +613,7 @@
       }
     });
     // --- Review form submission to Discord webhook ---
-    const reviewForm = document.getElementById('reviewForm');
-    const reviewMsg = document.getElementById('reviewMsg');
-    reviewForm.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      reviewMsg.textContent = "Submitting...";
-      reviewMsg.className = "";
-      // Collect form data
-      const server = reviewForm.server.value.trim();
-      const serverLink = reviewForm.serverLink.value.trim();
-      const discord = reviewForm.discord.value.trim();
-      const review = reviewForm.review.value.trim();
-      const rating = reviewForm.rating.value;
-      // Discord webhook URL (replace with your actual webhook)
-      const webhookUrl = 'https://discord.com/api/webhooks/1380770396592148491/sNZDwT5yXUXZ_XUCi0BHv_-FE-SaGBxaslJb7lSqLsTYCEUwV-piV4x3Stf1UjGP3D28';
-      // Star emoji for rating
-      const stars = '⭐'.repeat(Number(rating));
-      // Discord embed payload
-      const payload = {
-        embeds: [{
-          title: "New Gacky Review",
-          color: 0x00FFFF,
-          fields: [
-            { name: "Server Name", value: server, inline: false },
-            { name: "Server Link", value: serverLink, inline: false },
-            { name: "Discord Tag", value: discord, inline: false },
-            { name: "Review", value: review, inline: false },
-            { name: "Rating", value: stars + ` (${rating}/5)`, inline: false }
-          ],
-          timestamp: new Date().toISOString()
-        }]
-      };
-      try {
-        const res = await fetch(webhookUrl, {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify(payload)
-        });
-        if (res.ok) {
-          reviewMsg.textContent = "Thank you for your review!";
-          reviewMsg.className = "review-success";
-          reviewForm.reset();
-          setTimeout(() => document.getElementById('reviewModal').classList.remove('active'), 1500);
-        } else {
-          throw new Error('Failed to send');
-        }
-      } catch (err) {
-        reviewMsg.textContent = "Error submitting. Please try again or contact support.";
-        reviewMsg.className = "review-error";
-      }
-    });
+
   </script>
 </body>
 </html>
