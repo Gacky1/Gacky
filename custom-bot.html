@@ -126,7 +126,7 @@
       <p style="color: var(--gray-text); margin-top: 1rem;">Fill out the form and we will contact you on Discord for details and pricing.</p>
     </div>
     <div style="max-width:500px;margin:0 auto;">
-      <form id="customBotRequestForm" style="background:var(--card-bg);padding:2rem 2.5rem;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.3);">
+      <form  action="https://formspree.io/f/xanjqvzb" method="POST" id="customBotRequestForm" style="background:var(--card-bg);padding:2rem 2.5rem;border-radius:12px;box-shadow:0 8px 32px rgba(0,0,0,0.3);">
         <div style="margin-bottom:1rem;">
           <label for="name" style="font-weight:500;">Name</label>
           <input type="text" id="name" name="name" required style="width:100%;padding:0.5rem;margin-top:0.3rem;border-radius:5px;border:1px solid #333;background:rgba(30,30,50,0.2);color:#fff;">
@@ -201,44 +201,5 @@
     </div>
   </footer>
   <script src="script.js"></script>
-  <script>
-  // Custom Bot Request Form Submission
-  const customBotForm = document.getElementById('customBotRequestForm');
-  const customBotMsg = document.getElementById('customBotFormMsg');
-  if(customBotForm) {
-    customBotForm.addEventListener('submit', async function(e) {
-      e.preventDefault();
-      customBotMsg.textContent = 'Submitting...';
-      const data = {
-        name: customBotForm.name.value,
-        discord: customBotForm.discord.value,
-        phone: customBotForm.phone.value,
-        server: customBotForm.server.value,
-        requirements: customBotForm.requirements.value,
-        notes: customBotForm.notes.value
-      };
-      // Discord webhook URL (replace with your actual webhook)
-      const webhookUrl = 'https://discord.com/api/webhooks/1380274565724373155/purNL2x0K9xNXCEuxFqqA9BUnG_vgfwc56E462U9punfhnDUeRSHudnhcS_8-lYv06oH';
-      const content = `**New Custom Bot Request**\n**Name:** ${data.name}\n**Discord Tag:** ${data.discord}\n**Phone:** ${data.phone}\n**Server Invite:** ${data.server}\n**Requirements:** ${data.requirements}\n**Notes:** ${data.notes ? data.notes : 'N/A'}`;
-      try {
-        const res = await fetch(webhookUrl, {
-          method: 'POST',
-          headers: {'Content-Type': 'application/json'},
-          body: JSON.stringify({ content })
-        });
-        if (res.ok) {
-          customBotMsg.style.color = 'var(--accent-color)';
-          customBotMsg.textContent = 'Submitted! We will contact you soon on Discord.';
-          customBotForm.reset();
-        } else {
-          throw new Error('Failed to send');
-        }
-      } catch (err) {
-        customBotMsg.style.color = 'red';
-        customBotMsg.textContent = 'Error submitting. Please try again or contact support.';
-      }
-    });
-  }
-  </script>
 </body>
 </html>
