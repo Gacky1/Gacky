@@ -47,7 +47,7 @@
       <button id="voteBtn" class="primary-btn glow-btn" style="font-size:1.2rem;min-width:200px;margin-bottom:1rem;">
         <i class="fas fa-vote-yea"></i> Vote on Top.gg
       </button>
-      <div id="voteCount" style="color:var(--accent-color);font-size:1.1rem;margin-top:0.5rem;">Vote button clicked ... times</div>
+      <div id="voteCount" style="color:var(--accent-color);font-size:1.1rem;margin-top:0.5rem;">This will help us grow and bring more awesome features to the community. Thank you for your support!</div>
     </div>
   </section>
 
@@ -97,38 +97,5 @@
     </div>
   </footer>
   <script src="script.js"></script>
-  <script>
-    // Use npoint.io for global vote count (GET and PATCH)
-    const voteBtn = document.getElementById('voteBtn');
-    const voteCount = document.getElementById('voteCount');
-    const ENDPOINT = 'https://api.npoint.io/a22325d13355ce253e6d';
-    // Fetch and display current count
-    function updateVoteCount() {
-      fetch(ENDPOINT)
-        .then(res => res.json())
-        .then(data => {
-          voteCount.textContent = `Vote button clicked ${data.count} times`;
-        });
-    }
-    updateVoteCount();
-    voteBtn.addEventListener('click', function() {
-      // Get current count, then PATCH increment
-      fetch(ENDPOINT)
-        .then(res => res.json())
-        .then(data => {
-          const newCount = (data.count || 0) + 1;
-          voteCount.textContent = `Vote button clicked ${newCount} times`;
-          // PATCH the new count (requires npoint.io API key and CORS support)
-          fetch(ENDPOINT, {
-            method: 'PATCH',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ count: newCount })
-          });
-          window.open('https://top.gg/bot/1379901503715803166', '_blank');
-        });
-    });
-  </script>
 </body>
 </html>
