@@ -40,5 +40,23 @@
     "discord": "jevox.27.",
     "review": "Best bot easy to use",
     "rating": 5
+  },
+  {
+    "server": "FREE FIRE CHHATTISGARH OFFICIALS",
+    "serverLink": "https://discord.gg/dRfsMPrY",
+    "discord": "4h_romio_27",
+    "review": "badhiya hai sala ekdam kadak maal hai",
+    "rating": 5
+  },
+  {
+    "server": "Anurag037k server",
+    "serverLink": "https://discord.gg/nQ97u6Sg",
+    "discord": "anuragff2113",
+    "review": "Best app for scrims and tournament manage we kindly prefer to use and see how it work 🤗",
+    "rating": 5
   }
 ]
+
+// git add .
+// git commit -m "Add reviews for Gacky bot"
+// git push
