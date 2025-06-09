@@ -27,12 +27,18 @@
     "review": "Nice For tournament servers!",
     "rating": 4
   },
-        {
+  {
     "server": "OPC ESPORTS ASIA",
     "serverLink": "https://discord.gg/zQ4zNmP3gr",
     "discord": "rabbit.18",
     "review": "Great experience",
     "rating": 5
+  },
+  {
+    "server": "FRAG ESPORTS | 🇮🇳",
+    "serverLink": "https://discord.gg/Q5cZwkTvfN",
+    "discord": "jevox.27.",
+    "review": "Best bot easy to use",
+    "rating": 5
   }
-
 ]
