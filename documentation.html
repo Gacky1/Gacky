@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gacky Documentation</title>
+  <meta name="description" content="Complete documentation for Gacky Discord Bot commands and features.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="https://imagedelivery.net/FIZL8110j4px64kO6qJxWA/32e2820a-14fc-4501-73b7-7e06aebf4700/public">
+</head>
+<body>
+  <div class="noise"></div>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="https://images-ext-1.discordapp.net/external/Km-nsgFpKXAZx2HM8fRHCmlT4dyyRSabgfQDdbbxmkA/%3Fsize%3D4096%26ignore%3Dtrue%29./https/cdn.discordapp.com/avatars/1379901503715803166/a_9f8d886e8712f5c41b0dbffdb805c618.gif?width=625&height=625" alt="Gacky Logo" class="logo-img">
+        <span>Gacky</span>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <i class="fas fa-times" id="closeMenu"></i>
+        <ul>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="premium.html" class="nav-link">Premium</a></li>
+          <li><a href="vote.html" class="nav-link">Vote</a></li>
+          <li><a href="documentation.html" class="nav-link active">Documentation</a></li>
+          <li><a href="status.html" class="nav-link">Status</a></li>
+          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+      </div>
+      <i class="fas fa-bars" id="openMenu"></i>
+    </nav>
+  </header>
+
+  <div class="docs-container">
+    <aside class="docs-sidebar">
+      <div class="sidebar-header">
+        <i class="fas fa-book"></i>
+        <span>Documentation</span>
+      </div>
+      
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <div class="nav-item active" data-section="getting-started">
+            <i class="fas fa-rocket"></i>
+            <span>Getting Started</span>
+          </div>
+          
+          <div class="nav-item" data-section="moderation">
+            <i class="fas fa-shield-alt"></i>
+            <span>Moderation</span>
+          </div>
+          
+          <div class="nav-item" data-section="esports">
+            <i class="fas fa-trophy"></i>
+            <span>Esports</span>
+          </div>
+          
+          <div class="nav-item" data-section="utility">
+            <i class="fas fa-tools"></i>
+            <span>Utility Commands</span>
+          </div>
+          
+          <div class="nav-item" data-section="premium">
+            <i class="fas fa-crown"></i>
+            <span>Premium Features</span>
+          </div>
+          
+          <div class="nav-item" data-section="general">
+            <i class="fas fa-cog"></i>
+            <span>General Commands</span>
+          </div>
+        </div>
+      </nav>
+    </aside>
+
+    <main class="docs-content">
+      <div class="content-section active" id="getting-started">
+        <div class="section-header">
+          <i class="fas fa-rocket"></i>
+          <div>
+            <h1>Getting Started with Gacky</h1>
+            <p>Learn how to set up and configure Gacky for your Discord server.</p>
+          </div>
+        </div>
+
+        <div class="doc-section">
+          <h2>Installation</h2>
+          <ul class="step-list">
+            <li>Click the "Add to Server" button on our website</li>
+            <li>Select your Discord server from the dropdown</li>
+            <li>Grant the necessary permissions for full functionality</li>
+            <li>Run <code>ghelp</code> to see all available commands</li>
+          </ul>
+        </div>
+
+        <div class="doc-section">
+          <h2>Basic Configuration</h2>
+          <ul class="step-list">
+            <li>Set your server prefix: <code>gsetprefix &lt;new_prefix&gt;</code></li>
+            <li>Configure moderation settings: <code>gautomod status</code></li>
+            <li>Set up logging channels: <code>gmodlog #channel</code></li>
+            <li>Configure welcome messages: <code>gwelcome setup</code></li>
+          </ul>
+        </div>
+
+        <div class="doc-section">
+          <h2>Essential Commands</h2>
+          <div class="commands-grid">
+            <div class="command-card">
+              <div class="command-header">
+                <code>ghelp</code>
+                <button class="copy-btn" data-text="ghelp"><i class="fas fa-copy"></i></button>
+              </div>
+              <p>Access comprehensive command documentation</p>
+            </div>
+            
+            <div class="command-card">
+              <div class="command-header">
+                <code>gping</code>
+                <button class="copy-btn" data-text="gping"><i class="fas fa-copy"></i></button>
+              </div>
+              <p>Check bot latency and database status</p>
+            </div>
+            
+            <div class="command-card">
+              <div class="command-header">
+                <code>gbotstats</code>
+                <button class="copy-btn" data-text="gbotstats"><i class="fas fa-copy"></i></button>
+              </div>
+              <p>View bot statistics and information</p>
+            </div>
+            
+            <div class="command-card">
+              <div class="command-header">
+                <code>ginvite</code>
+                <button class="copy-btn" data-text="ginvite"><i class="fas fa-copy"></i></button>
+              </div>
+              <p>Get bot invite link (slash command)</p>
+            </div>
+            
+            <div class="command-card">
+              <div class="command-header">
+                <code>gsetprefix &lt;new_prefix&gt;</code>
+                <button class="copy-btn" data-text="gsetprefix !"><i class="fas fa-copy"></i></button>
+              </div>
+              <p>Change server prefix (max 2 characters)</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section" id="moderation">
+        <div class="section-header">
+          <i class="fas fa-shield-alt"></i>
+          <div>
+            <h1>Moderation Commands</h1>
+            <p>Powerful moderation tools to keep your server safe and organized.</p>
+          </div>
+        </div>
+
+        <div class="commands-grid">
+          <div class="command-card">
+            <div class="command-header">
+              <code>gselfclean</code>
+              <button class="copy-btn" data-text="gselfclean"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Auto cleanup messages from the bot</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gclear [amount]</code>
+              <button class="copy-btn" data-text="gclear 10"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Delete multiple messages at once</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gkick @user [reason]</code>
+              <button class="copy-btn" data-text="gkick @user spam"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Kick a user from the server</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gban @user [reason]</code>
+              <button class="copy-btn" data-text="gban @user breaking rules"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Ban a user from the server</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gunban @user</code>
+              <button class="copy-btn" data-text="gunban @user"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Unban a previously banned user</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>grole @user @role</code>
+              <button class="copy-btn" data-text="grole @user @Member"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Add a role to a user</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>grrole @user @role</code>
+              <button class="copy-btn" data-text="grrole @user @Member"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Remove a role from a user</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>glock</code>
+              <button class="copy-btn" data-text="glock"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Lock the current channel</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gunlock</code>
+              <button class="copy-btn" data-text="gunlock"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Unlock the current channel</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gmaintenance</code>
+              <button class="copy-btn" data-text="gmaintenance"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Enable server maintenance mode</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section" id="esports">
+        <div class="section-header">
+          <i class="fas fa-trophy"></i>
+          <div>
+            <h1>Esports Commands</h1>
+            <p>Advanced tournament and esports management features.</p>
+          </div>
+        </div>
+
+        <div class="commands-grid">
+          <div class="command-card">
+            <div class="command-header">
+              <code>gsmanager [slots]</code>
+              <button class="copy-btn" data-text="gsmanager 16"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Manage tournament slots and registrations</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gtourney create [name]</code>
+              <button class="copy-btn" data-text="gtourney create BGMI Tournament"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Create a new tournament</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gidp [id] [password]</code>
+              <button class="copy-btn" data-text="gidp 123456 pass123"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Set room ID and password for matches</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>geasytag</code>
+              <button class="copy-btn" data-text="geasytag"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Easy tag management for players</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gtagcheck @user</code>
+              <button class="copy-btn" data-text="gtagcheck @user"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Check a user's registered tag</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gslotmanager</code>
+              <button class="copy-btn" data-text="gslotmanager"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Advanced slot management system</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gbanlog</code>
+              <button class="copy-btn" data-text="gbanlog"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>View tournament ban history</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gssverify</code>
+              <button class="copy-btn" data-text="gssverify"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Screenshot verification system</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gpromote @user</code>
+              <button class="copy-btn" data-text="gpromote @user"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Promote user to higher rank</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gpoints @user [amount]</code>
+              <button class="copy-btn" data-text="gpoints @user 100"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Manage user tournament points</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section" id="utility">
+        <div class="section-header">
+          <i class="fas fa-tools"></i>
+          <div>
+            <h1>Utility Commands</h1>
+            <p>Helpful utility commands for server management and automation.</p>
+          </div>
+        </div>
+
+        <div class="commands-grid">
+          <div class="command-card">
+            <div class="command-header">
+              <code>greminder [time] [message]</code>
+              <button class="copy-btn" data-text="greminder 1h Tournament starts!"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Set custom reminders with time</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gautorole @role</code>
+              <button class="copy-btn" data-text="gautorole @Member"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Auto assign role to new members</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gembed [title] [description]</code>
+              <button class="copy-btn" data-text="gembed Welcome Welcome to our server!"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Create rich embed messages</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gquickembed [message]</code>
+              <button class="copy-btn" data-text="gquickembed Hello everyone!"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Quick embed message creation</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gsnipe</code>
+              <button class="copy-btn" data-text="gsnipe"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Show last deleted message</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gtag [name] [content]</code>
+              <button class="copy-btn" data-text="gtag rules Please follow server rules"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Create custom server tags</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gcategory [name]</code>
+              <button class="copy-btn" data-text="gcategory Gaming"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Create channel categories</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gautopurge [time]</code>
+              <button class="copy-btn" data-text="gautopurge 24h"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Auto delete messages after time</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="content-section" id="premium">
+        <div class="section-header">
+          <i class="fas fa-crown"></i>
+          <div>
+            <h1>Premium Features</h1>
+            <p>Exclusive features available with Gacky Premium subscription.</p>
+          </div>
+        </div>
+
+        <div class="commands-grid">
+          <div class="command-card">
+            <div class="command-header">
+              <code>gpstatus</code>
+              <button class="copy-btn" data-text="gpstatus"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Check your premium subscription status</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gpremium</code>
+              <button class="copy-btn" data-text="gpremium"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>View premium features and benefits</p>
+          </div>
+        </div>
+
+        <div class="doc-section">
+          <h2>Premium Benefits</h2>
+          <ul class="feature-list">
+            <li><i class="fas fa-check"></i> Unlimited Scrims</li>
+            <li><i class="fas fa-check"></i> Unlimited Tournaments</li>
+            <li><i class="fas fa-check"></i> Custom Reactions for Registrations</li>
+            <li><i class="fas fa-check"></i> Custom Messages</li>
+            <li><i class="fas fa-check"></i> Smart Screenshot Verification</li>
+            <li><i class="fas fa-check"></i> Cancel-Claim Panel</li>
+            <li><i class="fas fa-check"></i> Premium Role & Badge</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="content-section" id="general">
+        <div class="section-header">
+          <i class="fas fa-cog"></i>
+          <div>
+            <h1>General Commands</h1>
+            <p>Basic bot commands and server configuration options.</p>
+          </div>
+        </div>
+
+        <div class="commands-grid">
+          <div class="command-card">
+            <div class="command-header">
+              <code>gsetup</code>
+              <button class="copy-btn" data-text="gsetup"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Initial bot setup and configuration</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gabout</code>
+              <button class="copy-btn" data-text="gabout"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Display bot information and stats</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gvoteremind</code>
+              <button class="copy-btn" data-text="gvoteremind"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Set up vote reminders</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gcolor [hex_code]</code>
+              <button class="copy-btn" data-text="gcolor #ff0000"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Change embed color theme</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gfooter [text]</code>
+              <button class="copy-btn" data-text="gfooter Powered by Gacky"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Set custom embed footer text</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gmoney @user</code>
+              <button class="copy-btn" data-text="gmoney @user"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Check user's server currency balance</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gvote</code>
+              <button class="copy-btn" data-text="gvote"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Get voting links and information</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gdashboard</code>
+              <button class="copy-btn" data-text="gdashboard"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Access web dashboard link</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>gcontributors</code>
+              <button class="copy-btn" data-text="gcontributors"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>View bot contributors and credits</p>
+          </div>
+          
+          <div class="command-card">
+            <div class="command-header">
+              <code>ggboost</code>
+              <button class="copy-btn" data-text="ggboost"><i class="fas fa-copy"></i></button>
+            </div>
+            <p>Server boost information and perks</p>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+
+  <section class="tutorials-section">
+    <div class="section-header">
+      <h2>Video Tutorials</h2>
+      <div class="underline"></div>
+      <p style="color: var(--gray-text); margin-top: 1rem;">Learn how to use Gacky with our step-by-step video tutorials.</p>
+    </div>
+    <div class="tutorials-grid">
+      <div class="tutorial-card" data-aos="fade-up">
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Getting Started with Gacky" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="tutorial-info">
+          <h3>Getting Started with Gacky</h3>
+          <p>Learn the basics of setting up and configuring Gacky for your Discord server.</p>
+          <div class="tutorial-meta">
+            <span><i class="fas fa-clock"></i> 5:30</span>
+            <span><i class="fas fa-eye"></i> 1.2K views</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tutorial-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Tournament Management" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="tutorial-info">
+          <h3>Tournament Management</h3>
+          <p>Complete guide to creating and managing tournaments with Gacky's esports features.</p>
+          <div class="tutorial-meta">
+            <span><i class="fas fa-clock"></i> 8:45</span>
+            <span><i class="fas fa-eye"></i> 2.1K views</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tutorial-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Moderation Setup" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="tutorial-info">
+          <h3>Moderation Setup</h3>
+          <p>Set up advanced moderation features to keep your Discord server safe and organized.</p>
+          <div class="tutorial-meta">
+            <span><i class="fas fa-clock"></i> 6:20</span>
+            <span><i class="fas fa-eye"></i> 890 views</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="tutorial-card" data-aos="fade-up" data-aos-delay="300">
+        <div class="video-container">
+          <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Premium Features" frameborder="0" allowfullscreen></iframe>
+        </div>
+        <div class="tutorial-info">
+          <h3>Premium Features Overview</h3>
+          <p>Discover all the exclusive features available with Gacky Premium subscription.</p>
+          <div class="tutorial-meta">
+            <span><i class="fas fa-clock"></i> 7:15</span>
+            <span><i class="fas fa-eye"></i> 1.5K views</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="https://images-ext-1.discordapp.net/external/Km-nsgFpKXAZx2HM8fRHCmlT4dyyRSabgfQDdbbxmkA/%3Fsize%3D4096%26ignore%3Dtrue%29./https/cdn.discordapp.com/avatars/1379901503715803166/a_9f8d886e8712f5c41b0dbffdb805c618.gif?width=625&height=625" alt="Gacky Logo" class="footer-logo-img">
+            <span>Gacky</span>
+          </div>
+          <p>The ultimate Discord bot for tournament management and server enhancement.</p>
+          <div class="social-icons">
+            <a href="https://discord.gg/q76gbtbMm9"><i class="fab fa-discord"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="premium.html">Premium</a></li>
+              <li><a href="vote.html">Vote</a></li>
+              <li><a href="documentation.html">Documentation</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="documentation.html">Documentation</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="contact.html">Support</a></li>
+              <li><a href="status.html">Status</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Community</h4>
+            <ul>
+              <li><a href="https://discord.gg/q76gbtbMm9">Discord</a></li>
+              <li><a href="#">GitHub</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">YouTube</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Gacky Discord Bot. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    // Documentation navigation
+    document.addEventListener('DOMContentLoaded', function() {
+      const navItems = document.querySelectorAll('.nav-item');
+      const contentSections = document.querySelectorAll('.content-section');
+      
+      navItems.forEach(item => {
+        item.addEventListener('click', function() {
+          const targetSection = this.getAttribute('data-section');
+          
+          // Update active nav item
+          navItems.forEach(nav => nav.classList.remove('active'));
+          this.classList.add('active');
+          
+          // Show target section
+          contentSections.forEach(section => {
+            section.classList.remove('active');
+            if (section.id === targetSection) {
+              section.classList.add('active');
+            }
+          });
+        });
+      });
+      
+      // Copy button functionality
+      document.querySelectorAll('.copy-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+          const text = this.getAttribute('data-text');
+          navigator.clipboard.writeText(text).then(() => {
+            this.innerHTML = '<i class="fas fa-check"></i>';
+            setTimeout(() => {
+              this.innerHTML = '<i class="fas fa-copy"></i>';
+            }, 2000);
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>

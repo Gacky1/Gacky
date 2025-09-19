@@ -17,45 +17,98 @@
   <header>
     <nav>
       <div class="logo">
-        <img src="https://imagedelivery.net/FIZL8110j4px64kO6qJxWA/32e2820a-14fc-4501-73b7-7e06aebf4700/public" alt="Gacky Logo" class="logo-img">
+        <img src="https://images-ext-1.discordapp.net/external/Km-nsgFpKXAZx2HM8fRHCmlT4dyyRSabgfQDdbbxmkA/%3Fsize%3D4096%26ignore%3Dtrue%29./https/cdn.discordapp.com/avatars/1379901503715803166/a_9f8d886e8712f5c41b0dbffdb805c618.gif?width=625&height=625" alt="Gacky Logo" class="logo-img">
         <span>Gacky</span>
       </div>
       <div class="nav-links" id="navLinks">
         <i class="fas fa-times" id="closeMenu"></i>
         <ul>
-          <li><a href="index.html#home" class="nav-link">Home</a></li>
-          <li><a href="index.html#features" class="nav-link">Features</a></li>
-          <li><a href="index.html#commands" class="nav-link">Commands</a></li>
-          <li><a href="index.html#about" class="nav-link">About</a></li>
-          <li><a href="index.html#developer" class="nav-link">Developer</a></li>
-          <li><a href="index.html#discord" class="nav-link">Discord</a></li>
+          <li><a href="index.html" class="nav-link">Home</a></li>
           <li><a href="premium.html" class="nav-link">Premium</a></li>
-          <li><a href="custom-bot.html" class="nav-link">Custom Bot</a></li>
           <li><a href="vote.html" class="nav-link active">Vote</a></li>
-          <li><a href="reviews.html" class="nav-link">Reviews</a></li>
+          <li><a href="documentation.html" class="nav-link">Documentation</a></li>
+          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
         </ul>
       </div>
       <i class="fas fa-bars" id="openMenu"></i>
     </nav>
   </header>
 
-  <section class="hero-section" style="min-height: 60vh; display:flex; align-items:center; justify-content:center;">
-    <div class="hero-content" style="text-align:center; width:100%;">
-      <h1 class="glitch" data-text="Vote for Gacky">Vote for Gacky</h1>
-      <h2>Show Your Support!</h2>
-      <p style="color:var(--gray-text);font-size:1.2rem;max-width:500px;margin:1.5rem auto;">If you love using Gacky, please vote for us on Top.gg! Your vote helps us grow and bring more awesome features to the community. Thank you for your support!</p>
-      <a href="https://top.gg/bot/1379901503715803166/"><button id="voteBtn" class="primary-btn glow-btn" style="font-size:1.2rem;min-width:200px;margin-bottom:1rem;">
-        <i class="fas fa-vote-yea"></i> Vote on Top.gg
-      </button></a>
-      <div id="voteCount" style="color:var(--accent-color);font-size:1.1rem;margin-top:0.5rem;">This will help us grow and bring more awesome features to the community. Thank you for your support!</div>
+  <section class="vote-hero-section">
+    <div class="vote-container">
+      <div class="vote-card" data-aos="fade-up">
+        <div class="vote-icon">
+          <i class="fas fa-vote-yea"></i>
+        </div>
+        <h1 class="glitch" data-text="Vote for Gacky">Vote for Gacky</h1>
+        <h2 class="vote-subtitle">Show Your Support!</h2>
+        <p class="vote-description">If you love using Gacky, please vote for us on Top.gg! Your vote helps us grow and bring more awesome features to the community.</p>
+        
+        <div class="vote-stats" data-aos="fade-up" data-aos-delay="200">
+          <div class="vote-stat">
+            <span class="stat-number" id="totalVotes">1,247</span>
+            <span class="stat-label">Total Votes</span>
+          </div>
+          <div class="vote-stat">
+            <span class="stat-number" id="monthlyVotes">89</span>
+            <span class="stat-label">This Month</span>
+          </div>
+        </div>
+        
+        <div class="vote-actions" data-aos="fade-up" data-aos-delay="300">
+          <a href="https://top.gg/bot/1379901503715803166/" class="vote-btn primary-btn glow-btn">
+            <i class="fas fa-vote-yea"></i>
+            <span>Vote on Top.gg</span>
+            <div class="btn-glow"></div>
+          </a>
+          <div class="vote-reminder">
+            <i class="fas fa-clock"></i>
+            <span>You can vote every 12 hours</span>
+          </div>
+        </div>
+        
+        <div class="vote-benefits" data-aos="fade-up" data-aos-delay="400">
+          <h3>Why Vote?</h3>
+          <div class="benefits-grid">
+            <div class="benefit-item">
+              <i class="fas fa-rocket"></i>
+              <span>Help us grow</span>
+            </div>
+            <div class="benefit-item">
+              <i class="fas fa-star"></i>
+              <span>Show appreciation</span>
+            </div>
+            <div class="benefit-item">
+              <i class="fas fa-users"></i>
+              <span>Support community</span>
+            </div>
+            <div class="benefit-item">
+              <i class="fas fa-gift"></i>
+              <span>Unlock features</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="floating-elements">
+      <div class="floating-icon" style="--delay: 0s; --duration: 6s;">
+        <i class="fas fa-heart"></i>
+      </div>
+      <div class="floating-icon" style="--delay: 2s; --duration: 8s;">
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="floating-icon" style="--delay: 4s; --duration: 7s;">
+        <i class="fas fa-thumbs-up"></i>
+      </div>
     </div>
   </section>
 
   <footer>
     <div class="footer-content">
       <div class="footer-logo">
-        <img src="https://imagedelivery.net/FIZL8110j4px64kO6qJxWA/32e2820a-14fc-4501-73b7-7e06aebf4700/public" alt="Gacky Logo" class="footer-logo-img">
-        <span>Gacky</span>
+        <img src="https://images-ext-1.discordapp.net/external/Km-nsgFpKXAZx2HM8fRHCmlT4dyyRSabgfQDdbbxmkA/%3Fsize%3D4096%26ignore%3Dtrue%29./https/cdn.discordapp.com/avatars/1379901503715803166/a_9f8d886e8712f5c41b0dbffdb805c618.gif?width=625&height=625" alt="Gacky Logo" class="footer-logo-img">
+        <span>GACKY v2</span>
       </div>
       <div class="footer-links">
         <div class="footer-column">

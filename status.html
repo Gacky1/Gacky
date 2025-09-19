@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gacky Status</title>
+  <meta name="description" content="Check Gacky's current status and recent updates.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="https://imagedelivery.net/FIZL8110j4px64kO6qJxWA/32e2820a-14fc-4501-73b7-7e06aebf4700/public">
+</head>
+<body>
+  <div class="noise"></div>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="https://images-ext-1.discordapp.net/external/Km-nsgFpKXAZx2HM8fRHCmlT4dyyRSabgfQDdbbxmkA/%3Fsize%3D4096%26ignore%3Dtrue%29./https/cdn.discordapp.com/avatars/1379901503715803166/a_9f8d886e8712f5c41b0dbffdb805c618.gif?width=625&height=625" alt="Gacky Logo" class="logo-img">
+        <span>Gacky</span>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <i class="fas fa-times" id="closeMenu"></i>
+        <ul>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="premium.html" class="nav-link">Premium</a></li>
+          <li><a href="vote.html" class="nav-link">Vote</a></li>
+          <li><a href="documentation.html" class="nav-link">Documentation</a></li>
+          <li><a href="contact.html" class="nav-link">Contact Us</a></li>
+        </ul>
+      </div>
+      <i class="fas fa-bars" id="openMenu"></i>
+    </nav>
+  </header>
+
+  <section class="hero-section" style="min-height: 60vh; display:flex; align-items:center; justify-content:center;">
+    <div class="hero-content" style="text-align:center; width:100%;">
+      <h1 class="glitch" data-text="Status">Status</h1>
+      <h2>System Status & Updates</h2>
+      <div class="status-indicator">
+        <div class="status-dot operational"></div>
+        <span class="status-text">All Systems Operational</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <div class="section-header">
+      <h2>Service Status</h2>
+      <div class="underline"></div>
+    </div>
+    <div class="status-grid">
+      <div class="status-card">
+        <div class="service-header">
+          <h3>Bot Service</h3>
+          <div class="status-badge operational">Operational</div>
+        </div>
+        <div class="uptime">99.9% uptime</div>
+      </div>
+      <div class="status-card">
+        <div class="service-header">
+          <h3>API Service</h3>
+          <div class="status-badge operational">Operational</div>
+        </div>
+        <div class="uptime">99.8% uptime</div>
+      </div>
+      <div class="status-card">
+        <div class="service-header">
+          <h3>Database</h3>
+          <div class="status-badge operational">Operational</div>
+        </div>
+        <div class="uptime">99.9% uptime</div>
+      </div>
+      <div class="status-card">
+        <div class="service-header">
+          <h3>Web Dashboard</h3>
+          <div class="status-badge operational">Operational</div>
+        </div>
+        <div class="uptime">99.7% uptime</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="section-header">
+      <h2>Recent Updates</h2>
+      <div class="underline"></div>
+    </div>
+    <div class="updates-container" id="updatesContainer">
+      <div class="loading-spinner">
+        <i class="fas fa-spinner fa-spin"></i>
+        <p>Loading updates...</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="footer-logo">
+            <img src="https://images-ext-1.discordapp.net/external/Km-nsgFpKXAZx2HM8fRHCmlT4dyyRSabgfQDdbbxmkA/%3Fsize%3D4096%26ignore%3Dtrue%29./https/cdn.discordapp.com/avatars/1379901503715803166/a_9f8d886e8712f5c41b0dbffdb805c618.gif?width=625&height=625" alt="Gacky Logo" class="footer-logo-img">
+            <span>Gacky</span>
+          </div>
+          <p>The ultimate Discord bot for tournament management and server enhancement.</p>
+          <div class="social-icons">
+            <a href="https://discord.gg/q76gbtbMm9"><i class="fab fa-discord"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+        <div class="footer-links">
+          <div class="footer-column">
+            <h4>Navigation</h4>
+            <ul>
+              <li><a href="index.html">Home</a></li>
+              <li><a href="premium.html">Premium</a></li>
+              <li><a href="vote.html">Vote</a></li>
+              <li><a href="documentation.html">Documentation</a></li>
+              <li><a href="contact.html">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Resources</h4>
+            <ul>
+              <li><a href="documentation.html">Documentation</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="contact.html">Support</a></li>
+              <li><a href="status.html">Status</a></li>
+            </ul>
+          </div>
+          <div class="footer-column">
+            <h4>Community</h4>
+            <ul>
+              <li><a href="https://discord.gg/q76gbtbMm9">Discord</a></li>
+              <li><a href="#">GitHub</a></li>
+              <li><a href="#">Twitter</a></li>
+              <li><a href="#">YouTube</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Gacky Discord Bot. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+  <script>
+    // Fetch Discord channel messages for status updates
+    async function fetchStatusUpdates() {
+      const container = document.getElementById('updatesContainer');
+      
+      try {
+        // Replace with your actual Discord channel webhook or API endpoint
+        // This is a placeholder - you'll need to implement server-side proxy
+        const updates = [
+          {
+            content: "🟢 All systems operational. Bot is running smoothly across all servers.",
+            timestamp: new Date().toISOString(),
+            author: "System"
+          },
+          {
+            content: "🔧 Maintenance completed. Tournament features have been optimized for better performance.",
+            timestamp: new Date(Date.now() - 86400000).toISOString(),
+            author: "Duggu"
+          },
+          {
+            content: "✨ New feature: Enhanced slot management system is now live!",
+            timestamp: new Date(Date.now() - 172800000).toISOString(),
+            author: "Duggu"
+          }
+        ];
+        
+        container.innerHTML = updates.map(update => `
+          <div class="update-item">
+            <div class="update-header">
+              <span class="update-author">${update.author}</span>
+              <span class="update-time">${new Date(update.timestamp).toLocaleDateString()}</span>
+            </div>
+            <div class="update-content">${update.content}</div>
+          </div>
+        `).join('');
+        
+      } catch (error) {
+        container.innerHTML = `
+          <div class="error-message">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p>Unable to load updates. Please check back later.</p>
+          </div>
+        `;
+      }
+    }
+    
+    // Load updates when page loads
+    document.addEventListener('DOMContentLoaded', fetchStatusUpdates);
+  </script>
+</body>
+</html>

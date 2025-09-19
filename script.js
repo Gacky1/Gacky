@@ -149,6 +149,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // Fetch Discord server stats
   fetchDiscordInfo();
+
+  // Initialize enhanced animations
+  initializeEnhancedAnimations();
 });
 
 // Fetch Discord server information
@@ -188,12 +191,6 @@ function isElementInViewport(el) {
 }
 
 // AOS animation classes
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('[data-aos]').forEach(element => {
-    element.classList.add('aos-init');
-  });
-});
-
 class AOS {
   static init() {
     const elements = document.querySelectorAll('[data-aos]');
@@ -202,9 +199,6 @@ class AOS {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
           entry.target.classList.add('aos-animate');
-        } else {
-          // Uncomment below to reset animations when out of view
-          // entry.target.classList.remove('aos-animate');
         }
       });
     }, {
@@ -218,4 +212,171 @@ class AOS {
 }
 
 AOS.init();
+
+// Enhanced Vote Page Functionality
+if (window.location.pathname.includes('vote.html')) {
+  // Animate vote stats on load
+  const animateVoteStats = () => {
+    const totalVotesEl = document.getElementById('totalVotes');
+    const monthlyVotesEl = document.getElementById('monthlyVotes');
+    
+    if (totalVotesEl && monthlyVotesEl) {
+      animateNumber(totalVotesEl, 0, 1247, 2000);
+      animateNumber(monthlyVotesEl, 0, 89, 1500);
+    }
+  };
   
+  // Number animation function
+  const animateNumber = (element, start, end, duration) => {
+    const startTime = performance.now();
+    const animate = (currentTime) => {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+      const current = Math.floor(start + (end - start) * easeOutCubic(progress));
+      
+      element.textContent = current.toLocaleString();
+      
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+    requestAnimationFrame(animate);
+  };
+  
+  // Easing function
+  const easeOutCubic = (t) => 1 - Math.pow(1 - t, 3);
+  
+  // Start animations when page loads
+  setTimeout(animateVoteStats, 500);
+  
+  // Add click effect to vote button
+  const voteBtn = document.querySelector('.vote-btn');
+  if (voteBtn) {
+    voteBtn.addEventListener('click', (e) => {
+      // Create ripple effect
+      const ripple = document.createElement('span');
+      const rect = voteBtn.getBoundingClientRect();
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+      
+      ripple.style.cssText = `
+        position: absolute;
+        width: ${size}px;
+        height: ${size}px;
+        left: ${x}px;
+        top: ${y}px;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 50%;
+        transform: scale(0);
+        animation: ripple 0.6s linear;
+        pointer-events: none;
+      `;
+      
+      voteBtn.appendChild(ripple);
+      
+      setTimeout(() => {
+        ripple.remove();
+      }, 600);
+    });
+  }
+}
+
+// Initialize enhanced animations
+function initializeEnhancedAnimations() {
+  // Scroll indicator functionality
+  const scrollIndicator = document.querySelector('.scroll-indicator');
+  if (scrollIndicator) {
+    scrollIndicator.addEventListener('click', () => {
+      const featuresSection = document.getElementById('features');
+      if (featuresSection) {
+        featuresSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+    
+    // Hide scroll indicator on scroll
+    window.addEventListener('scroll', () => {
+      const scrolled = window.pageYOffset;
+      if (scrolled > 100) {
+        scrollIndicator.style.opacity = '0';
+        scrollIndicator.style.transform = 'translateX(-50%) translateY(20px)';
+      } else {
+        scrollIndicator.style.opacity = '1';
+        scrollIndicator.style.transform = 'translateX(-50%) translateY(0)';
+      }
+    });
+  }
+
+  // Enhanced button hover effects
+  const magneticBtns = document.querySelectorAll('.primary-btn, .secondary-btn');
+  magneticBtns.forEach(btn => {
+    btn.addEventListener('mouseenter', (e) => {
+      btn.classList.add('magnetic-btn');
+    });
+    
+    btn.addEventListener('mouseleave', (e) => {
+      btn.classList.remove('magnetic-btn');
+      btn.style.transform = '';
+    });
+    
+    btn.addEventListener('mousemove', (e) => {
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width / 2;
+      const y = e.clientY - rect.top - rect.height / 2;
+      
+      btn.style.transform = `translate(${x * 0.1}px, ${y * 0.1}px) scale(1.05)`;
+    });
+  });
+
+  // Enhanced feature card animations
+  const featureCards = document.querySelectorAll('.feature-card');
+  featureCards.forEach((card, index) => {
+    card.style.animationDelay = `${index * 0.1}s`;
+    
+    card.addEventListener('mouseenter', () => {
+      card.style.zIndex = '10';
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.zIndex = '1';
+    });
+  });
+
+  // Parallax effect for hero section
+  window.addEventListener('scroll', () => {
+    const scrolled = window.pageYOffset;
+    const heroSection = document.querySelector('.hero-section');
+    
+    if (heroSection && scrolled < window.innerHeight) {
+      const speed = scrolled * 0.3;
+      heroSection.style.transform = `translateY(${speed}px)`;
+    }
+  });
+
+  // Add stagger animation to feature cards
+  const cards = document.querySelectorAll('.feature-card');
+  cards.forEach((card, index) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(50px)';
+    
+    setTimeout(() => {
+      card.style.transition = 'all 0.6s cubic-bezier(0.4, 0, 0.2, 1)';
+      card.style.opacity = '1';
+      card.style.transform = 'translateY(0)';
+    }, index * 200 + 1000);
+  });
+}
+
+// Add ripple animation CSS
+const rippleCSS = `
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+`;
+
+const style = document.createElement('style');
+style.textContent = rippleCSS;
+document.head.appendChild(style);

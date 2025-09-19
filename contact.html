@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Gacky</title>
+  <meta name="description" content="Get in touch with the Gacky team for support, feedback, or business inquiries.">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="https://imagedelivery.net/FIZL8110j4px64kO6qJxWA/32e2820a-14fc-4501-73b7-7e06aebf4700/public">
+</head>
+<body>
+  <div class="noise"></div>
+  <header>
+    <nav>
+      <div class="logo">
+        <img src="https://images-ext-1.discordapp.net/external/Km-nsgFpKXAZx2HM8fRHCmlT4dyyRSabgfQDdbbxmkA/%3Fsize%3D4096%26ignore%3Dtrue%29./https/cdn.discordapp.com/avatars/1379901503715803166/a_9f8d886e8712f5c41b0dbffdb805c618.gif?width=625&height=625" alt="Gacky Logo" class="logo-img">
+        <span>Gacky</span>
+      </div>
+      <div class="nav-links" id="navLinks">
+        <i class="fas fa-times" id="closeMenu"></i>
+        <ul>
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="premium.html" class="nav-link">Premium</a></li>
+          <li><a href="vote.html" class="nav-link">Vote</a></li>
+          <li><a href="documentation.html" class="nav-link">Documentation</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact Us</a></li>
+        </ul>
+      </div>
+      <i class="fas fa-bars" id="openMenu"></i>
+    </nav>
+  </header>
+
+  <section class="hero-section" style="min-height: 60vh; display:flex; align-items:center; justify-content:center;">
+    <div class="hero-content" style="text-align:center; width:100%;">
+      <h1 class="glitch" data-text="Contact Us">Contact Us</h1>
+      <h2>Get in Touch</h2>
+      <p style="color:var(--gray-text);font-size:1.2rem;max-width:600px;margin:1.5rem auto;">Have questions, feedback, or need support? We're here to help!</p>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+      <div class="feature-card" data-aos="fade-up">
+        <div class="feature-icon">
+          <i class="fab fa-discord"></i>
+        </div>
+        <h3>Discord Support</h3>
+        <p style="color:var(--gray-text);margin-bottom:1.5rem;">Join our Discord server for instant support and community help.</p>
+        <a href="https://discord.gg/q76gbtbMm9" class="primary-btn" target="_blank">
+          <i class="fab fa-discord"></i> Join Discord
+        </a>
+      </div>
+
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="100">
+        <div class="feature-icon">
+          <i class="fas fa-envelope"></i>
+        </div>
+        <h3>Email Support</h3>
+        <p style="color:var(--gray-text);margin-bottom:1.5rem;">Send us an email for detailed inquiries or business matters.</p>
+        <a href="mailto:support@gacky.bot" class="primary-btn">
+          <i class="fas fa-envelope"></i> Send Email
+        </a>
+      </div>
+
+      <div class="feature-card" data-aos="fade-up" data-aos-delay="200">
+        <div class="feature-icon">
+          <i class="fas fa-bug"></i>
+        </div>
+        <h3>Bug Reports</h3>
+        <p style="color:var(--gray-text);margin-bottom:1.5rem;">Found a bug? Report it to help us improve Gacky.</p>
+        <a href="https://discord.gg/q76gbtbMm9" class="primary-btn" target="_blank">
+          <i class="fas fa-bug"></i> Report Bug
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="section-header">
+      <h2>Contact Form</h2>
+      <div class="underline"></div>
+    </div>
+    <div class="about-content" style="max-width: 800px; margin: 0 auto;">
+      <form action="https://formspree.io/f/xkgboyed" method="POST" class="contact-form">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" required>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="subject">Subject</label>
+          <select id="subject" name="subject" required>
+            <option value="">Select a subject</option>
+            <option value="General Support">General Support</option>
+            <option value="Bug Report">Bug Report</option>
+            <option value="Feature Request">Feature Request</option>
+            <option value="Premium Support">Premium Support</option>
+            <option value="Business Inquiry">Business Inquiry</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="6" required placeholder="Please describe your inquiry in detail..."></textarea>
+        </div>
+        <button type="submit" class="primary-btn glow-btn">
+          <i class="fas fa-paper-plane"></i> Send Message
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <section class="discord-section">
+    <div class="section-header">
+      <h2>Quick Links</h2>
+      <div class="underline"></div>
+    </div>
+    <div class="discord-content" style="justify-content: center;">
+      <div class="discord-text" style="text-align: center;">
+        <h3>Need Immediate Help?</h3>
+        <p>For the fastest response, join our Discord server where our community and support team are active 24/7.</p>
+        <div class="cta-buttons" style="justify-content: center; margin-top: 2rem;">
+          <a href="https://discord.gg/q76gbtbMm9" class="discord-btn" target="_blank">
+            <i class="fab fa-discord"></i> Join Support Server
+          </a>
+          <a href="documentation.html" class="secondary-btn">
+            <i class="fas fa-book"></i> View Documentation
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-content">
+      <div class="footer-logo">
+        <img src="https://images-ext-1.discordapp.net/external/Km-nsgFpKXAZx2HM8fRHCmlT4dyyRSabgfQDdbbxmkA/%3Fsize%3D4096%26ignore%3Dtrue%29./https/cdn.discordapp.com/avatars/1379901503715803166/a_9f8d886e8712f5c41b0dbffdb805c618.gif?width=625&height=625" alt="Gacky Logo" class="footer-logo-img">
+        <span>Gacky</span>
+      </div>
+      <div class="footer-links">
+        <div class="footer-column">
+          <h4>Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="premium.html">Premium</a></li>
+            <li><a href="vote.html">Vote</a></li>
+            <li><a href="documentation.html">Documentation</a></li>
+            <li><a href="contact.html">Contact Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="documentation.html">Documentation</a></li>
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Status</a></li>
+            <li><a href="contact.html">Support</a></li>
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="https://discord.gg/q76gbtbMm9"><i class="fab fa-discord"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2025 Gacky Discord Bot. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="script.js"></script>
+</body>
+</html>
